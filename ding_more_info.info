@@ -1,5 +1,5 @@
 name = Ding more info
 description = Ding more info button for search results
-package = Ding!
+package = easyDDB
 version = "7.x-1.19"
 core = 7.x
