@@ -1,0 +1,46 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  ding_more_info.field.inc: n/a
+#  ding_more_info.install: n/a
+#  ding_more_info.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-02-19 16:15+0100\n"
+"PO-Revision-Date: 2015-02-20 16:16+0100\n"
+"Last-Translator: Martin Cording <mc@inlead.dk>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: da\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: ding_more_info.field.inc:14;15
+msgid "Ting more info"
+msgstr "Mere information-knap"
+
+#: ding_more_info.field.inc:29
+msgid "Default"
+msgstr "Standard"
+
+#: ding_more_info.field.inc:66 ding_more_info.install:21
+msgid "More info"
+msgstr "Mere information"
+
+#: ding_more_info.info:0
+msgid "Ding more info"
+msgstr "Mere information"
+
+#: ding_more_info.info:0
+msgid "Ding more info button for search results"
+msgstr "Tilføjer en \"Mere information\"-knap til diverse TING sider."
+
+#: ding_more_info.info:0
+msgid "easyDDB"
+msgstr ""
