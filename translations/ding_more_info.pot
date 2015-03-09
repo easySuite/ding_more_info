@@ -3,6 +3,7 @@
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
+#  ding_more_info.features.field_instance.inc: n/a
 #  ding_more_info.field.inc: n/a
 #  ding_more_info.install: n/a
 #  ding_more_info.info: n/a
@@ -11,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-02-19 16:15+0100\n"
+"POT-Creation-Date: 2015-03-09 14:14+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -20,16 +21,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: ding_more_info.features.field_instance.inc:89 ding_more_info.field.inc:66 ding_more_info.install:21
+msgid "More info"
+msgstr ""
+
 #: ding_more_info.field.inc:14;15
 msgid "Ting more info"
 msgstr ""
 
 #: ding_more_info.field.inc:29
 msgid "Default"
-msgstr ""
-
-#: ding_more_info.field.inc:66 ding_more_info.install:21
-msgid "More info"
 msgstr ""
 
 #: ding_more_info.info:0
