@@ -6,3 +6,18 @@
 
 // Load Field module hooks.
 module_load_include('inc', 'ding_more_info', 'ding_more_info.field');
+
+/**
+ * Implements hook_entity_view().
+ */
+function ding_more_info_entity_view($entity, $type, $view_mode, $langcode) {
+  $search_result = $type == 'ting_object' && $view_mode == 'search_result';
+  $collection_view = $type == 'ting_object' && $view_mode == 'collection_list';
+
+  if ($search_result) {
+    $entity->content['#group_children']['ting_more_info'] = 'group_ting_right_col_search';
+  }
+  elseif ($collection_view) {
+    $entity->content['#group_children']['ting_more_info'] = 'group_ting_right_col_collection';
+  }
+}
