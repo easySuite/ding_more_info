@@ -12,7 +12,7 @@ function ding_more_info_ding_entity_fields() {
   return array(
     'ting_more_info' => array(
       'field' => array(
-        'locked' => TRUE,
+        'locked' => FALSE,
         'storage' => array(
           'type' => 'virtual_field',
         ),
