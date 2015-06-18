@@ -24,8 +24,8 @@ function ding_more_info_ding_entity_fields() {
 }
 
 /**
- * Implements hook_install().
+ * Implements hook_uninstall().
  */
-function ding_more_info_гтinstall() {
+function ding_more_info_uninstall() {
   variable_del('more_info_default_implementations');
 }
