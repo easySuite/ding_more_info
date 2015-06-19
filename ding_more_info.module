@@ -21,3 +21,64 @@ function ding_more_info_entity_view($entity, $type, $view_mode, $langcode) {
     $entity->content['#group_children']['ting_more_info'] = 'group_ting_right_col_collection';
   }
 }
+
+/**
+ * Implements hook_menu().
+ */
+function ding_more_info_menu() {
+  $menu = array();
+
+  $menu['admin/config/ding/moreinfo'] = array(
+    'title' => 'More Info Button',
+    'description' => 'Configure more info button placement',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ding_more_info_admin_form'),
+    'access arguments' => array('configure more info'),
+    'file' => 'ding_more_info.admin.inc',
+  );
+
+  return $menu;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ding_more_info_permission() {
+  $perm = array();
+
+  $perm['configure more info'] = array(
+    'title' => t('More info button'),
+    'description' => t('Configure the placement of more info button.'),
+  );
+
+  return $perm;
+}
+
+/**
+ * Create/remove more info field instances.
+ *
+ * @param array $implementations
+ *   An array of modules that require field modifications.
+ */
+function ding_more_info_setup_instances(array $modules) {
+  $hooks = module_invoke_all('more_info_support');
+
+  foreach ($modules as $module => $v) {
+    if (isset($hooks[$module])) {
+      $instance = field_info_instance('ting_object', 'ting_more_info', 'ting_object');
+      $instance['display'][$hooks[$module]['display']] = array(
+        'label' => $hooks[$module]['label'],
+        'type' => 'ting_more_info_default',
+        'weight' => $hooks[$module]['weight'],
+        'settings' => array(),
+        'module' => 'ding_more_info',
+      );
+
+      if (!$v) {
+        $instance['display'][$hooks[$module]['display']]['type'] = 'hidden';
+      }
+
+      field_update_instance($instance);
+    }
+  }
+}
