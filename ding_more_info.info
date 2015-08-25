@@ -1,7 +1,7 @@
 name = Ding more info
 description = Ding more info button for search results.
 package = easyDDB
-version = 7.x-2.0.0+easy
+version = 7.x-2.2.0+easy
 core = 7.x
 dependencies[] = features
 dependencies[] = virtual_field
