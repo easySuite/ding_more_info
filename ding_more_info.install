@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Install, update and uninstall functions for the ding_more_info.
@@ -22,4 +21,11 @@ function ding_more_info_ding_entity_fields() {
       ),
     ),
   );
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ding_more_info_uninstall() {
+  variable_del('more_info_default_implementations');
 }
