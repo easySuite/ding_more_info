@@ -1,6 +1,6 @@
 name = Ding more info
 description = Ding more info button for search results.
-package = easyDDB
+package = easyOPAC
 version = 7.x-2.2.0+easy
 core = 7.x
 dependencies[] = features
