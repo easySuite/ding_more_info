@@ -6,7 +6,7 @@ core = 7.x
 dependencies[] = features
 dependencies[] = virtual_field
 configure = admin/config/ding/moreinfo
-features[features_api][] = api:1
+features[features_api][] = api:2
+features[field_base][] = ting_more_info
 features[field_instance][] = ting_object-ting_object-ting_more_info
-features_exclude[field_base][ting_more_info] = ting_more_info
-
+mtime = 1491777988

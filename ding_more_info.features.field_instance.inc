@@ -16,14 +16,12 @@ function ding_more_info_field_default_field_instances() {
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
-    'ding_entity_type' => 'ding_entity',
     'display' => array(
       'collection_list' => array(
-        'label' => 'hidden',
-        'module' => 'ding_more_info',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'ting_more_info_default',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'collection_primary' => array(
         'label' => 'above',
@@ -31,24 +29,36 @@ function ding_more_info_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
-      ),
-      'objects_in_popup' => array(
+      'compact' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'search_result' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'ding_item_viewer_big' => array(
         'label' => 'hidden',
         'module' => 'ding_more_info',
         'settings' => array(),
         'type' => 'ting_more_info_default',
-        'weight' => 20,
+        'weight' => 7,
+      ),
+      'ding_item_viewer_small' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -57,6 +67,12 @@ function ding_more_info_field_default_field_instances() {
         'weight' => 0,
       ),
       'ting_reference_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'ting_search_carousel' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -80,7 +96,7 @@ function ding_more_info_field_default_field_instances() {
       'module' => 'virtual_field',
       'settings' => array(),
       'type' => 'hidden',
-      'weight' => 42,
+      'weight' => 39,
     ),
   );
 
