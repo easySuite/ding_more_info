@@ -8,6 +8,7 @@
  * Implements hook_install().
  */
 function ding_more_info_install() {
+  _field_info_collate_types(TRUE);
   _ding_more_info_add_field();
 }
 
