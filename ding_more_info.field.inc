@@ -15,7 +15,10 @@ function ding_more_info_field_info() {
       'description' => t('Ting more info'),
       'default_widget' => 'hidden',
       'default_formatter' => 'ting_more_info_default',
-      'no_ui' => TRUE,
+      'virtual_field' => array(
+        'entity_types' => array('ting_object'),
+        'add_widget' => TRUE,
+      ),
     ),
   );
 }
