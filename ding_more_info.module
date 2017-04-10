@@ -54,31 +54,4 @@ function ding_more_info_permission() {
   return $perm;
 }
 
-/**
- * Create/remove more info field instances.
- *
- * @param array $implementations
- *   An array of modules that require field modifications.
- */
-function ding_more_info_setup_instances(array $modules) {
-  $hooks = module_invoke_all('more_info_support');
 
-  foreach ($modules as $module => $v) {
-    if (isset($hooks[$module])) {
-      $instance = field_info_instance('ting_object', 'ting_more_info', 'ting_object');
-      $instance['display'][$hooks[$module]['display']] = array(
-        'label' => $hooks[$module]['label'],
-        'type' => 'ting_more_info_default',
-        'weight' => $hooks[$module]['weight'],
-        'settings' => array(),
-        'module' => 'ding_more_info',
-      );
-
-      if (!$v) {
-        $instance['display'][$hooks[$module]['display']]['type'] = 'hidden';
-      }
-
-      field_update_instance($instance);
-    }
-  }
-}

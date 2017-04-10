@@ -5,41 +5,6 @@
  */
 
 /**
- * Implements hook_install().
- */
-function ding_more_info_install() {
-  _ding_more_info_add_field();
-}
-
-/**
- * Create field instance on module install.
- */
-function _ding_more_info_add_field() {
-  $field_name = 'ting_more_info';
-  $field_info = field_info_field($field_name);
-  if (empty($field_info)) {
-    $field = array(
-      'field_name' => $field_name,
-      'type' => 'ting_more_info'
-    );
-    field_create_field($field);
-  }
-
-  $field_instance = field_info_instance('ting_object', $field_name, 'ting_object');
-  $instance = array(
-    'field_name' => $field_name,
-    'entity_type' => 'ting_object',
-    'bundle' => 'ting_object',
-    'label' => 'Ting More info',
-    'display' => array('default' =>  array('label' => 'hidden'),),
-  );
-
-  if (!empty($field_info) && empty($field_instance)) {
-    field_create_instance($instance);
-  }
-}
-
-/**
  * Implements hook_ding_entity_fields().
  */
 function ding_more_info_ding_entity_fields() {
@@ -63,7 +28,4 @@ function ding_more_info_ding_entity_fields() {
  */
 function ding_more_info_uninstall() {
   variable_del('more_info_default_implementations');
-
-  field_delete_field('ting_more_info');
-  field_purge_batch(1);
 }
