@@ -8,17 +8,12 @@
  * Implements hook_install().
  */
 function ding_more_info_install() {
-  _field_info_collate_types(TRUE);
   _ding_more_info_add_field();
 }
 
 /**
- * Add ting more info field.
+ * Create field instance on module install.
  */
-function ding_more_info_update_7001() {
-  _ding_more_info_add_field();
-}
-
 function _ding_more_info_add_field() {
   $field_name = 'ting_more_info';
   $field_info = field_info_field($field_name);
@@ -68,4 +63,7 @@ function ding_more_info_ding_entity_fields() {
  */
 function ding_more_info_uninstall() {
   variable_del('more_info_default_implementations');
+
+  field_delete_field('ting_more_info');
+  field_purge_batch(1);
 }
