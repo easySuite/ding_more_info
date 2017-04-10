@@ -5,3 +5,4 @@ version = 7.x-2.2.0+easy
 core = 7.x
 dependencies[] = virtual_field
 configure = admin/config/ding/moreinfo
+files[] = ding_more_info.field.inc
