@@ -1,12 +1,8 @@
 name = Ding more info
 description = Ding more info button for search results.
-package = easyDDB
+package = easyOPAC
 version = 7.x-2.2.0+easy
 core = 7.x
-dependencies[] = features
 dependencies[] = virtual_field
 configure = admin/config/ding/moreinfo
-features[features_api][] = api:1
-features[field_instance][] = ting_object-ting_object-ting_more_info
-features_exclude[field_base][ting_more_info] = ting_more_info
-
+files[] = ding_more_info.field.inc
