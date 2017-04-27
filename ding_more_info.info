@@ -1,7 +1,7 @@
 name = Ding more info
 description = Ding more info button for search results.
 package = easyOPAC
-version = 7.x-2.2.0+easy
+version = 7.x-3.0.2
 core = 7.x
 dependencies[] = virtual_field
 configure = admin/config/ding/moreinfo
