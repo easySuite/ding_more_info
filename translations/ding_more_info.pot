@@ -42,6 +42,6 @@ msgid "Ding more info button for search results"
 msgstr ""
 
 #: ding_more_info.info:0
-msgid "easyDDB"
+msgid "easyOPAC"
 msgstr ""
 
