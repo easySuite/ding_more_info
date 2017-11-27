@@ -74,5 +74,5 @@ msgid "Ding more info button for search results."
 msgstr "\"Mere information\"-knap til diverse TING sider."
 
 #: profiles/ding2/modules/ding_more_info/ding_more_info.info:0
-msgid "easyDDB"
+msgid "easyOPAC"
 msgstr ""
