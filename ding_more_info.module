@@ -15,10 +15,10 @@ function ding_more_info_entity_view($entity, $type, $view_mode, $langcode) {
   $collection_view = $type == 'ting_object' && $view_mode == 'collection_list';
 
   if ($search_result) {
-    $entity->content['#group_children']['ting_more_info'] = 'group_ting_right_col_search';
+    $entity->content['#group_children']['ting_more_info'] = 'group_info';
   }
   elseif ($collection_view) {
-    $entity->content['#group_children']['ting_more_info'] = 'group_ting_right_col_collection';
+    $entity->content['#group_children']['ting_more_info'] = 'group_info';
   }
 }
 
