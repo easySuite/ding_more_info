@@ -8,18 +8,13 @@
  * More info settings form definition.
  */
 function ding_more_info_admin_form($form, $form_state) {
-  $modules = module_invoke_all('more_info_support');
-  $options = array();
+  $entity_info = entity_get_info('ting_object');
 
-  foreach ($modules as $k => $v) {
-    if (module_exists($k)) {
-      $options[] = $k;
-    }
-  }
+  $options = array_map(function ($view_mode) {
+    return $view_mode['label'];
+  }, $entity_info['view modes']);
 
   if (!empty($options)) {
-    $options = array_combine($options, $options);
-
     $form['implementations'] = array(
       '#type' => 'checkboxes',
       '#title' => t('Enable more info button on:'),
@@ -62,9 +57,7 @@ function ding_more_info_admin_form_submit($form, &$form_state) {
  * @param array $implementations
  *   An array of modules that require field modifications.
  */
-function ding_more_info_setup_instances(array $modules) {
-  $hooks = module_invoke_all('more_info_support');
-
+function ding_more_info_setup_instances(array $implementations) {
   $field_name = 'ting_more_info';
   $field_info = field_info_field($field_name);
   if (empty($field_info)) {
@@ -75,36 +68,38 @@ function ding_more_info_setup_instances(array $modules) {
     field_create_field($field);
   }
 
-  foreach ($modules as $module => $v) {
-    if (isset($hooks[$module])) {
-      $field_instance = field_info_instance('ting_object', $field_name, 'ting_object');
-      if (!empty($field_info) && empty($field_instance)) {
-        $instance = array(
-          'field_name' => $field_name,
-          'entity_type' => 'ting_object',
-          'bundle' => 'ting_object',
-          'label' => 'Ting More info',
-          'display' => array(
-            $hooks[$module]['display'] =>  array(
-              'label' => $hooks[$module]['label'],
-              'weight' => $hooks[$module]['weight'],
-              'settings' => array(),
-              'module' => 'ding_more_info',
-              'type' => 'ting_more_info_default',
-            ),
+  foreach ($implementations as $implementation => $v) {
+    $field_instance = field_info_instance('ting_object', $field_name, 'ting_object');
+    if (!empty($field_info) && empty($field_instance)) {
+      $instance = array(
+        'field_name' => $field_name,
+        'entity_type' => 'ting_object',
+        'bundle' => 'ting_object',
+        'label' => 'Ting More info',
+        'display' => array(
+          $implementation =>  array(
+            'label' => 'hidden',
+            'weight' => 19,
+            'settings' => array(),
+            'module' => 'ding_more_info',
+            'type' => 'ting_more_info_default',
           ),
-        );
-        field_create_instance($instance);
+        ),
+      );
+      field_create_instance($instance);
+    }
+    elseif (!empty($field_instance)) {
+      if ($v) {
+        $field_instance['display'][$implementation]['type'] = 'ting_more_info_default';
       }
-      elseif (!empty($field_instance)) {
-        if ($v) {
-          $field_instance['display'][$hooks[$module]['display']]['type'] = 'ting_more_info_default';
-        }
-        else {
-          $field_instance['display'][$hooks[$module]['display']]['type'] = 'hidden';
-        }
-        field_update_instance($field_instance);
+      else {
+        $field_instance['display'][$implementation]['type'] = 'hidden';
       }
+      // Hide moreinfo link on the main display.
+      $field_instance['display']['default']['type'] = 'hidden';
+
+      // Update field instance.
+      field_update_instance($field_instance);
     }
   }
 }
