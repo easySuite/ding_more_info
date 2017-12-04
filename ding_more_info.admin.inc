@@ -91,6 +91,20 @@ function ding_more_info_setup_instances(array $implementations) {
     elseif (!empty($field_instance)) {
       if ($v) {
         $field_instance['display'][$implementation]['type'] = 'ting_more_info_default';
+        // Hide label from the display.
+        $field_instance['display'][$implementation]['label'] = 'hidden';
+
+        // Move field to the group info.
+        $groups = field_group_read_groups(array(
+          'entity_type' => 'ting_object',
+          'bundle'      => 'ting_object',
+          'mode'   => $implementation
+        ));
+        $group = $groups['ting_object']['ting_object'][$implementation]['group_info'];
+        if (!in_array($field_name, $group->children)) {
+          array_unshift($group->children, $field_name);
+        }
+        field_group_group_save($group);
       }
       else {
         $field_instance['display'][$implementation]['type'] = 'hidden';
